@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Sample URL Shortener</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+<link rel="shortcut icon" href="" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript">
+
+window.onload = function(){document.getElementById("url").focus();document.getElementById("url").select()};
+</script>
+</head>
+<body>
+<div id="header">
+</div>
+<div id="content">
+<p>Copy the short url to your clipboard using right-click/copy,<br/>control+c, or command-c</p>
+<div id="navtext"><a href="/">Home</a><a href="html/tools.html">Tools</a><a href="html/about.html">About</a><a href="html/contact.html">Contact</a></div>
+<form>
+<input class="textbox" type="text" maxlength="2000" size="55" id="url" name="url" value="http://sample.com/{{ code }}" onclick="this.select()"/>
+</form>
+<table id="links" width="500">
+<tr>
+<td align="right" width="130">Shortened link:</td><td align="left"><a href="http://sample.com/{{ code }}" target="_blank">http://sample.com/{{ code }}</a></td>
+</tr>
+<tr>
+<td align="right" width="130">Original link:</td><td align="left"><a href="{{ url }}" target="_blank" title="{{ url }}">{{ disp_url }}</a></td>
+</tr>
+<tr>
+<td align="right" width="130">Post to Twitter:</td><td align="left"><a href="javascript:void(0)" onclick="top.location.href='http://twitter.com/home?status='+escape('http://sample.com/{{ code }}')+'%20'">http://sample.com/{{ code }}</a></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

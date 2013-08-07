@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>billy.cx can shorten for you</title>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+<link rel="shortcut icon" href="" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">
+var linkString = "javascript:(function(){if(location.href.substring(0,15)!='http://billy.cx'){location.href='http://billy.cx/create.html?url='+encodeURIComponent(location.href);}})();";
+
+$(document).ready(function() {
+						   
+	$("#bookmarkletLink").attr("href", linkString);
+	
+	$("#bookmarkletLink").bind("click", function(){
+		if($.browser.msie){
+			alert("To start using the billy.cx bookmarklet, right-click and select 'Add To Favorites...' to save this link to your browser's bookmarks toolbar.");
+		}
+		else {
+			alert("To start using the billy.cx bookmarklet, drag this link to your browser's bookmarks toolbar.");
+		}
+		return false;
+	});
+
+});
+
+</script>
+</head>
+<body>
+<div id="header">
+</div>
+<div id="content">
+<div id="navtext"><a href="/">Home</a><a href="tools.html">Tools</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<div id="textbox">
+<h2>Tools</h2>
+<h3>Bookmarklet</h3>
+<p>Drag the link below to your browser's bookmark toolbar.</p>
+<a id="bookmarkletLink">Bookmarklet</a>
+<p>
+To shorten an Internet url:
+<ol><li>Navigate to an image or web page.</li>
+<li>Click the <strong>billy.cx</strong> bookmarklet to shorten the link.</li>
+</ol>
+</div>
+</div>
+</body>
+</html>
