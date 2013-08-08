@@ -21,6 +21,11 @@ handlers:
 - url: /(.*)
   script: app.py
 
+# - url: .*
+#   script: main.py
+
+# - url: /(.*)
+#   script: main.py
 
 
 libraries:
@@ -35,10 +40,5 @@ libraries:
 #- url: /(.*)
 # script: billy-cx.app
 
-#- url: .*
-#  script: main.py
-
-#- url: /(.*)
-#  script: main.py
 
 

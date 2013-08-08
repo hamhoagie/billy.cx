@@ -1,5 +1,5 @@
 import webapp2
-
+import jinja2
 import cgi
 import wsgiref.handlers
 from google.appengine.ext import webapp
@@ -97,9 +97,9 @@ class UrlHandler(webapp.RequestHandler):
             'disp_url': disp_url
         }
         if len(code) == 0:
-            path = os.path.join(os.path.dirname(__file__), 'index.html')
+            path = os.path.join(os.path.dirname(__file__), 'templates/index.html')
         else:
-            path = os.path.join(os.path.dirname(__file__), 'create.html')
+            path = os.path.join(os.path.dirname(__file__), 'templates/create.html')
 
         self.response.out.write(template.render(path, template_values))
 
