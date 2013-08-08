@@ -1,15 +1,7 @@
 import webapp2
-#dev only
-#from paste import httpserver
-
-from google.appengine.ext import webapp
 from google.appengine.ext import db
 import random
 import urllib
-import os
-from google.appengine.ext.webapp import template
-from urlparse import urlparse
-
 from webapp2_extras import jinja2
 
 
@@ -72,21 +64,40 @@ class BaseHandler(webapp2.RequestHandler):
         self.response.write(rv)
 
 
-class HomeHandler(BaseHandler):
-    def get(self):
-        template_args = {}
-        self.render_template('index.html', **template_args)
+class URLHandler(BaseHandler):
+    def get(self, parm=""):
+        url = ""
+        code = ""
+        disp_url = url
+        template_args = {
+            'code': code,
+            'url': url,
+            'disp_url': disp_url
+        }
+        if parm == 'create.html':
+            parm = self.request.get('url')
+        if len(parm) > 0:
+            if parm.lower().startswith('http'):
+                code = getCode(parm)
+            else:
+                url = getUrl(parm)
+                if len(url) > 0:
+                    url = urllib.unquote_plus(url)
+                    return
 
+        url = urllib.unquote_plus(parm)
+        disp_url = url
+        if len(disp_url) > 40:
+            disp_url = disp_url[0:40] + '...'
 
-class ShortenHandler(BaseHandler):
-    def post(self):
-        template_args = {}
-        self.render_template('create.html', **template_args)
+        if len(code) == 0:
+            self.render_template('index.html', **template_args)
+        else:
+            self.render_template('create.html', **template_args)
 
 
 application = webapp2.WSGIApplication([
-    (r'/', HomeHandler),
-    (r'/create', ShortenHandler),
+    (r'/', URLHandler),
 ], debug=True)
 
 
