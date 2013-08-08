@@ -2,23 +2,43 @@ application: billy-cx
 version: 5
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: false
 
 handlers:
 
-- url: /html
-  static_dir: html
-
 - url: /css
   static_dir: css
+
+- url: /js
+  static_dir: js
 
 - url: /images
   static_dir: images
 
 - url: .*
-  script: main.py
+  script: app.py
 
 - url: /(.*)
-  script: main.py
+  script: app.py
+
+
+
+libraries:
+
+- name: jinja2
+  version:  "2.6"
+
+
+
+
+
+#- url: /(.*)
+# script: billy-cx.app
+
+#- url: .*
+#  script: main.py
+
+#- url: /(.*)
+#  script: main.py
 
 
