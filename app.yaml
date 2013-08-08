@@ -20,11 +20,4 @@ handlers:
 - url: /(.*)
   script: main.py
 
-- url: /index.html
-  static_files: index.html
-  upload: index.html
-
-- url: /create.html
-  static_files: create.html
-  upload: create.html
 
