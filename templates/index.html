@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+        <h2></h2>
+        <p>Enter a long url below and click
+            <strong>Make Shorter</strong>to create an billy.cx link.</p>
+        <div id="navtext"><a href="html/tools.html">Tools</a><a href="html/about.html">About</a><a href="html/contact.html">Contact</a>
+        </div>
+        <form action="create.html" method="get" onsubmit="return urlCheck(this);">
+            <input class="textbox" type="text" maxlength="2000" size="55" id="url" name="url" value="" />
+            <input class="button" type="submit" value="Make Shorter" />
+        </form>
+{% endblock %}
